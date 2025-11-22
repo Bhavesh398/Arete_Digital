@@ -10,6 +10,7 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import ChatBot from "@/components/ChatBot"; // ← ADD THIS
 
 const Home = () => {
   return (
@@ -24,8 +25,10 @@ const Home = () => {
         <Approach />
         <Footer />
       </div>
+      
+      {/* Chatbot Widget - ADD THIS */}
+      <ChatBot />
     </main>
   );
 };
-
 export default Home;
