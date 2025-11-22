@@ -1,6 +1,7 @@
 "use client";
 
 import { navItems } from "@/data";
+import dynamic from 'next/dynamic';
 
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
@@ -10,7 +11,11 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
-import ChatBot from "@/components/ChatBot"; // ← ADD THIS
+
+// Dynamically import ChatBot with no SSR
+const ChatBot = dynamic(() => import("@/components/ChatBot"), {
+  ssr: false,
+});
 
 const Home = () => {
   return (
@@ -26,9 +31,10 @@ const Home = () => {
         <Footer />
       </div>
       
-      {/* Chatbot Widget - ADD THIS */}
+      {/* Chatbot Widget */}
       <ChatBot />
     </main>
   );
 };
+
 export default Home;
